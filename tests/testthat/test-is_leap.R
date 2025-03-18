@@ -1,3 +1,6 @@
+library(testthat)
+source("is_leap.R")
+
 # Valid cases
 test_that("`is_leap` correctly identifies leap years", {
   expect_true((is_leap(1992))) # Expected: TRUE
