@@ -1,10 +1,10 @@
-#,  Determines whether or a given year is a leap year.
+# ,  Determines whether or a given year is a leap year.
 #'
 #' A year is a leap year if:
 #' - The year is divisible by four.
 #' - But, if it is also divisible by 100, it is NOT a leap year.
 #' - However, if it is divisible by 400, it IS a leap year.
-#' 
+#'
 #' @param year An integer representing the year.
 #'
 #' @return A logical value:
@@ -18,5 +18,25 @@
 #' is_leap(1900) # FALSE
 #' is_leap(2021) # FALSE
 is_leap <- function(year) {
-  # Returns true/false if it is a leap year (function body will be implemented later).
+
+    # Check if input is a valid numeric value
+  if (!is.numeric(year) || length(year) != 1) {
+    stop("Year must be a single numeric value")
+  }
+  
+  # Check for invalid year inputs
+  if (year <= 0 || year %% 1 != 0) {
+    stop("Year must be a positive integer")
+  }
+  
+  if (year %% 4 == 0) {
+    if (year %% 100 == 0) {
+      if (year %% 400 == 0) {
+        return(TRUE)
+      }
+      return(FALSE)
+    }
+    return(TRUE)
+  }
+  return(FALSE)
 }
