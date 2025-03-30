@@ -1,4 +1,4 @@
-# ,  Determines whether or a given year is a leap year.
+#'  Determines whether or a given year is a leap year.
 #'
 #' A year is a leap year if:
 #' - The year is divisible by four.
@@ -19,16 +19,14 @@
 #' is_leap(2021) # FALSE
 is_leap <- function(year) {
 
-  # TODO: This doesn't catch NA because it's treated as a string.
-  # if (identical(year, NA)) {
-  #   stop("Year can not be a missing value.")
-  # }
-
   if (missing(year)) {
     stop("Argument \"year\" is missing.")
   }
 
-  # TODO: This doesn't catch "2000" for some reason.
+  if (is.na(year)) {
+    stop("Year can not be a missing value.")
+  }
+
   if (!is.numeric(year)) {
     stop("Year must be a single numeric value.")
   }

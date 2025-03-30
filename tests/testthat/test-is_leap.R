@@ -1,5 +1,5 @@
 library(testthat)
-source("R/is_leap.R")
+source("../../R/is_leap.R")
 
 # Valid cases
 test_that("`is_leap` correctly identifies leap years", {
@@ -18,9 +18,9 @@ test_that("`is_leap` handles edge cases correctly", {
 
 # Invalid input cases
 test_that("`is_leap` throws errors for invalid input types", {
-  # expect_error(is_leap("2000"), "Year must be a single numeric value.") #TODO: gets "non-numeric argument to binary operator" error
+  expect_error(is_leap("2000"), "Year must be a single numeric value.")
   expect_error(is_leap("abc"), "Year must be a single numeric value.")
   expect_error(is_leap(-400), "Year must be a positive integer.")
   expect_error(is_leap(2000.5), "Year must be a positive integer.")
-  # expect_error(is_leap(NA), "Year can not be a missing value.") #TODO treats NA as string and not missing value, how to address?
+  expect_error(is_leap(NA), "Year can not be a missing value.")
 })
